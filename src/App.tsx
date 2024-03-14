@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path={""} element={<MainPage/>} />
 
-      <Route path="*" element={<div>Not Found</div>} />
+      <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
   );
 };

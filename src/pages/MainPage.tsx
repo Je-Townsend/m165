@@ -15,11 +15,18 @@ export default function QuizOverview() {
   const BandGenre = "Rock";
   const title = "Example Song";
   const band_id = 1;
-  const duration = "3:30";
+  const duration = 255;
   const composer = "John Doe";
   const producer = "Jane Doe";
   const album = "Example Album";
   const spotify_link = "https://example.com";
+
+  function secondsToMinutes(secs: number) {
+    let minutenGanz = secs / 60;
+    var mins = Math.floor(minutenGanz);
+    var restlicheSekunden = secs - mins * 60;
+    return mins + " Minuten " + restlicheSekunden + " Sekunden";
+}
 
   return (
     <div className="Band">
@@ -30,7 +37,7 @@ export default function QuizOverview() {
         BandGenre={BandGenre}
         title={title}
         band_id={band_id}
-        duration={duration}
+        duration={secondsToMinutes(duration)}
         composer={composer}
         producer={producer}
         album={album}

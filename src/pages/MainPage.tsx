@@ -26,7 +26,7 @@ export default function QuizOverview() {
     var mins = Math.floor(minutenGanz);
     var restlicheSekunden = secs - mins * 60;
     return mins + " Minuten " + restlicheSekunden + " Sekunden";
-}
+  }
 
   return (
     <div className="Band">

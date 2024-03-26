@@ -45,12 +45,15 @@ export default function MainPage() {
           composer={responseShow.composer}
           producer={responseShow.producer}
           album={responseShow.album}
-          spotify_link={responseShow.spotify_link}
-        />
+          spotify_link={responseShow.spotify_link} 
+          btnText={"Go to Details"} 
+          navUrl={"/details/" + responseShow.band.id} 
+          displayBtn={true}        />
       )}
-      <EditSong
-        BandName={responseShow.BandName}
-        BandGenre={responseShow.BandGenre}
+      {responseShow && (
+        <EditSong
+        BandName={responseShow.band.name}
+        BandGenre={responseShow.band.genre}
         title={responseShow.title}
         duration={secondsToMinutes(responseShow.duration)}
         composer={responseShow.composer}
@@ -58,6 +61,8 @@ export default function MainPage() {
         album={responseShow.album}
         spotify_link={responseShow.spotify_link}
       />
+      )}
+      
     </div>
   );
 }

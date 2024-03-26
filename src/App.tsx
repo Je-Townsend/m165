@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-      <Route path={"/songs/:songId"} element={<MainPage />} />
+      <Route path={""} element={<MainPage />} />
       
       <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>

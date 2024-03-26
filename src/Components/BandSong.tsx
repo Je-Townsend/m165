@@ -19,6 +19,9 @@ interface BandSongProps {
   producer: string;
   album: string;
   spotify_link: string;
+  btnText: string | undefined;
+  navUrl: string | undefined;
+  displayBtn: boolean;
 }
 
 const BandSong: React.FC<BandSongProps> = ({
@@ -30,6 +33,9 @@ const BandSong: React.FC<BandSongProps> = ({
   producer,
   album,
   spotify_link,
+  btnText,
+  navUrl,
+  displayBtn
 }) => {
   return (
     <div style={{ marginRight: "30px" }}>
@@ -69,6 +75,15 @@ const BandSong: React.FC<BandSongProps> = ({
           <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {spotify_link}
           </Typography>
+          {(displayBtn && navUrl && btnText) && (
+          <button 
+          onClick={() => {
+            window.location.href = navUrl;
+          }}
+          >{btnText}</button>
+          )}
+          
+          <button></button>
         </Grid>
       </Grid>
     </div>

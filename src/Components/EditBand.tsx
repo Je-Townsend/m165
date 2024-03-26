@@ -73,6 +73,8 @@ const EditSong: React.FC<BandSongProps> = ({
   }
     
     await axios.put(`http://localhost:8080/songs/${id}`, post);
+
+    
   };
 
 
@@ -97,12 +99,14 @@ const EditSong: React.FC<BandSongProps> = ({
             defaultValue={initialBandName}
             onChange={(event) => setBandName(event.target.value)}
             fullWidth
+            disabled
           />
           <TextField
             style={{ marginBottom: "4px" }}
             defaultValue={initialBandGenre}
             onChange={(event) => setBandGenre(event.target.value)}
             fullWidth
+            disabled
           />
           <TextField
             style={{ marginBottom: "8px" }}

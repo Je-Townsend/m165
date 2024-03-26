@@ -24,6 +24,14 @@ export default function MainPage() {
     fetchData();
   }, []);
 
+  function checkLength(string: string) {
+    if (string.length > 0) {
+      return string;
+    } else {
+      return "null";
+    }
+  }
+
   function secondsToMinutes(secs: number) {
     let minutenGanz = secs / 60;
     var mins = Math.floor(minutenGanz);
@@ -33,23 +41,23 @@ export default function MainPage() {
 
   return (
     <div className="Band">
-      <h1>MainPage</h1>
+      <h1>Songs</h1>
       <br />
       {responseShow && ( 
       responseShow.map((song: any) => {
         return(
         <BandSong
-          BandName={song.band.name}
-          BandGenre={song.band.genre}
-          title={song.title}
+          BandName={checkLength(song.band.name)}
+          BandGenre={checkLength(song.band.genre)}
+          title={checkLength(song.title)}
           duration={secondsToMinutes(song.duration)}
-          composer={song.composer}
-          producer={song.producer}
-          album={song.album}
-          spotify_link={song.spotify_link} 
-          youtube_link={song.youtube_link} 
+          composer={checkLength(song.composer)}
+          producer={checkLength(song.producer)}
+          album={checkLength(song.album)}
+          spotify_link={checkLength(song.spotify_link)}
+          youtube_link={checkLength(song.youtube_link)} 
           btnText={"Go to Details"} 
-          navUrl={"/details/" + song.id} 
+          navUrl={"/details/" + checkLength(song.id)} 
           displayBtn={true}        />
           )
       })

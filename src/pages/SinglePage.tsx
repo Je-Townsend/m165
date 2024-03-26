@@ -31,7 +31,7 @@ export default function MainPage() {
 
 	return (
 		<div className="Band">
-			<h1>MainPage</h1>
+			<h1>Update Song</h1>
 			<br />
 			{responseShow && (
 				<EditSong

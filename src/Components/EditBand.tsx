@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles"; // Corrected import
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { margin } from "@mui/system";
 
 
 const LabelTypography = styled(Typography)({
@@ -76,14 +77,13 @@ const EditSong: React.FC<BandSongProps> = ({
 
 
   return (
-    <div style={{ marginRight: "30px" }}>
+    <div style={{ marginRight: "30px", alignItems: "center" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <LabelTypography variant="subtitle1">Band Name:</LabelTypography>
           <LabelTypography variant="subtitle1">Genre:</LabelTypography>
           <LabelTypography variant="subtitle1">Title:</LabelTypography>
-          <LabelTypography variant="subtitle1">Seconds:</LabelTypography>
-          <LabelTypography variant="subtitle1">Minutes:</LabelTypography>
+          <LabelTypography style={{ marginBottom: "35px" }} variant="subtitle1">Duration:</LabelTypography>
           <LabelTypography variant="subtitle1">Composer:</LabelTypography>
           <LabelTypography variant="subtitle1">Producer:</LabelTypography>
           <LabelTypography variant="subtitle1">Album:</LabelTypography>
@@ -105,26 +105,32 @@ const EditSong: React.FC<BandSongProps> = ({
             fullWidth
           />
           <TextField
-            style={{ marginBottom: "4px" }}
+            style={{ marginBottom: "8px" }}
             defaultValue={initialTitle}
             onChange={(event) => setTitle(event.target.value)}
             fullWidth
           />
           <TextField
-            style={{ marginBottom: "4px" }}
-            defaultValue={seconds}
-            onChange={(event) => setSeconds(Number(event.target.value))}
-            fullWidth
-          />
-          <TextField
-            style={{ marginBottom: "4px" }}
+            label="Minuten"
+            type="number"
             defaultValue={minutes}
             onChange={(event) => setMinutes(Number(event.target.value))}
-            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <TextField
+            label="Sekunden"
+            type="number"
+            defaultValue={seconds}
+            onChange={(event) => setSeconds(Number(event.target.value))}
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           
           <TextField
-            style={{ marginBottom: "4px" }}
+            style={{ marginTop: "5px", marginBottom: "4px" }}
             defaultValue={initialComposer}
             onChange={(event) => setComposer(event.target.value)}
             fullWidth
@@ -153,9 +159,9 @@ const EditSong: React.FC<BandSongProps> = ({
             onChange={(event) => setYoutubeLink(event.target.value)}
             fullWidth
           />
-          <button onClick={handleClick}>Log Data</button>
         </Grid>
       </Grid>
+      <button onClick={handleClick}>Update</button>
     </div>
   );
 };

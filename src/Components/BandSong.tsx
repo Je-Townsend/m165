@@ -38,7 +38,7 @@ const BandSong: React.FC<BandSongProps> = ({
   displayBtn
 }) => {
   return (
-    <div style={{ marginRight: "30px" }}>
+    <div style={{ marginRight: "30px", border: "1px solid black" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <LabelTypography variant="subtitle1">Band Name:</LabelTypography>
@@ -83,7 +83,7 @@ const BandSong: React.FC<BandSongProps> = ({
           >{btnText}</button>
           )}
           
-          <button></button>
+
         </Grid>
       </Grid>
     </div>

@@ -8,6 +8,7 @@ function App() {
   return (
     <Routes>
       <Route path={""} element={<MainPage />} />
+      <Route path={"/songs/:songId"} element={<MainPage />} />
       
       <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>

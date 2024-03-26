@@ -14,9 +14,8 @@ export default function MainPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/songs/${id}`);
-        setResponseShow(response.data[0]); // Setze die Antwortdaten in den responseShow-State
-        console.log('Daten erhalten:', response.data[1]);
+        const response = await axios.get(`http://localhost:8080/songs`);
+        setResponseShow(response.data); 
       } catch (error) {
         console.error('Fehler beim Abrufen der Daten:', error);
       }
@@ -36,21 +35,32 @@ export default function MainPage() {
     <div className="Band">
       <h1>MainPage</h1>
       <br />
-      {responseShow && ( // Zeige BandSong nur an, wenn responseShow definiert ist
+      {responseShow && ( 
+      responseShow.map((song: any) => {
+        return(
         <BandSong
-          BandName={responseShow.band.name}
-          BandGenre={responseShow.band.genre}
-          title={responseShow.title}
-          duration={secondsToMinutes(responseShow.duration)}
-          composer={responseShow.composer}
-          producer={responseShow.producer}
-          album={responseShow.album}
-          spotify_link={responseShow.spotify_link} 
+          BandName={song.band.name}
+          BandGenre={song.band.genre}
+          title={song.title}
+          duration={secondsToMinutes(song.duration)}
+          composer={song.composer}
+          producer={song.producer}
+          album={song.album}
+          spotify_link={song.spotify_link} 
           btnText={"Go to Details"} 
-          navUrl={"/details/" + responseShow.band.id} 
+          navUrl={"/details/" + song.id} 
           displayBtn={true}        />
+          )
+      })
+        
       )}
-      {responseShow && (
+      
+      
+    </div>
+  );
+}
+/*
+{responseShow && (
         <EditSong
         BandName={responseShow.band.name}
         BandGenre={responseShow.band.genre}
@@ -61,8 +71,4 @@ export default function MainPage() {
         album={responseShow.album}
         spotify_link={responseShow.spotify_link}
       />
-      )}
-      
-    </div>
-  );
-}
+      )} */

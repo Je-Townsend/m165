@@ -2,14 +2,18 @@ import BandSong from "../Components/BandSong";
 import "../App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 export default function MainPage() {
   const [responseShow, setResponseShow] = useState<any>(null); // Verwende useState, um responseShow zu speichern
+  let { id } = useParams<{ id: string }>();
+
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/songs');
+        const response = await axios.get(`http://localhost:8080/songs/${id}`);
         setResponseShow(response.data[0]); // Setze die Antwortdaten in den responseShow-State
         console.log('Daten erhalten:', response.data[1]);
       } catch (error) {

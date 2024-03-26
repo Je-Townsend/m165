@@ -47,6 +47,7 @@ export default function MainPage() {
           producer={song.producer}
           album={song.album}
           spotify_link={song.spotify_link} 
+          youtube_link={song.youtube_link} 
           btnText={"Go to Details"} 
           navUrl={"/details/" + song.id} 
           displayBtn={true}        />

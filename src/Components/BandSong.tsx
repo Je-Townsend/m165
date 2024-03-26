@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles"; // Corrected import
 
 const LabelTypography = styled(Typography)({
-  textAlign: "right",
+  textAlign: "center",
   paddingLeft: "10px",
   marginTop: "15px",
   marginBottom: "32px",
@@ -19,6 +19,7 @@ interface BandSongProps {
   producer: string;
   album: string;
   spotify_link: string;
+  youtube_link: string;
   btnText: string | undefined;
   navUrl: string | undefined;
   displayBtn: boolean;
@@ -33,6 +34,7 @@ const BandSong: React.FC<BandSongProps> = ({
   producer,
   album,
   spotify_link,
+  youtube_link,
   btnText,
   navUrl,
   displayBtn
@@ -50,31 +52,35 @@ const BandSong: React.FC<BandSongProps> = ({
           <LabelTypography variant="subtitle1">Producer:</LabelTypography>
           <LabelTypography variant="subtitle1">Album:</LabelTypography>
           <LabelTypography variant="subtitle1">Spotify Link:</LabelTypography>
+          <LabelTypography variant="subtitle1">Youtube Link:</LabelTypography>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {BandName}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {BandGenre}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {title}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {duration}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {composer}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {producer}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {album}
           </Typography>
-          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
             {spotify_link}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "-10px", marginLeft: "-70px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {youtube_link}
           </Typography>
           {(displayBtn && navUrl && btnText) && (
           <button 

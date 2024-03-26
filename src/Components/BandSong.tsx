@@ -1,8 +1,19 @@
+import React from "react";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles"; // Corrected import
+
+const LabelTypography = styled(Typography)({
+  textAlign: "right",
+  paddingLeft: "10px",
+  marginTop: "15px",
+  marginBottom: "32px",
+});
+
 interface BandSongProps {
   BandName: string;
   BandGenre: string;
   title: string;
-  band_id: number;
   duration: string;
   composer: string;
   producer: string;
@@ -14,7 +25,6 @@ const BandSong: React.FC<BandSongProps> = ({
   BandName,
   BandGenre,
   title,
-  band_id,
   duration,
   composer,
   producer,
@@ -22,33 +32,46 @@ const BandSong: React.FC<BandSongProps> = ({
   spotify_link,
 }) => {
   return (
-    <>
-      <h1>{BandName}</h1>
-      <p>
-        <strong>Genre:</strong> {BandGenre}
-      </p>
-      <p>
-        <strong>Title:</strong> {title}
-      </p>
-      <p>
-        <strong>Band ID:</strong> {band_id}
-      </p>
-      <p>
-        <strong>Duration:</strong> {duration}
-      </p>
-      <p>
-        <strong>Composer:</strong> {composer}
-      </p>
-      <p>
-        <strong>Producer:</strong> {producer}
-      </p>
-      <p>
-        <strong>Album:</strong> {album}
-      </p>
-      <p>
-        <strong>Spotify Link:</strong> {spotify_link}
-      </p>
-    </>
+    <div style={{ marginRight: "30px" }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <LabelTypography variant="subtitle1">Band Name:</LabelTypography>
+          <LabelTypography variant="subtitle1">Genre:</LabelTypography>
+          <LabelTypography variant="subtitle1">Title:</LabelTypography>
+          <LabelTypography variant="subtitle1">Duration:</LabelTypography>
+          <LabelTypography variant="subtitle1">Composer:</LabelTypography>
+          <LabelTypography variant="subtitle1">Producer:</LabelTypography>
+          <LabelTypography variant="subtitle1">Album:</LabelTypography>
+          <LabelTypography variant="subtitle1">Spotify Link:</LabelTypography>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {BandName}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {BandGenre}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {title}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {duration}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {composer}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {producer}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {album}
+          </Typography>
+          <Typography style={{ textAlign: "left", paddingLeft: "10px", marginTop: "16px", marginBottom: "36px", color: "#000" }}>
+            {spotify_link}
+          </Typography>
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 

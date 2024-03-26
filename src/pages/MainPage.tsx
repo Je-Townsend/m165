@@ -3,6 +3,7 @@ import "../App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
+import EditSong from "../Components/EditBand";
 
 export default function MainPage() {
   const [responseShow, setResponseShow] = useState<any>(null); // Verwende useState, um responseShow zu speichern
@@ -40,7 +41,6 @@ export default function MainPage() {
           BandName={responseShow.band.name}
           BandGenre={responseShow.band.genre}
           title={responseShow.title}
-          band_id={responseShow.band.id}
           duration={secondsToMinutes(responseShow.duration)}
           composer={responseShow.composer}
           producer={responseShow.producer}
@@ -48,6 +48,16 @@ export default function MainPage() {
           spotify_link={responseShow.spotify_link}
         />
       )}
+      <EditSong
+        BandName={responseShow.BandName}
+        BandGenre={responseShow.BandGenre}
+        title={responseShow.title}
+        duration={secondsToMinutes(responseShow.duration)}
+        composer={responseShow.composer}
+        producer={responseShow.producer}
+        album={responseShow.album}
+        spotify_link={responseShow.spotify_link}
+      />
     </div>
   );
 }

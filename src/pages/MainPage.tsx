@@ -2,6 +2,7 @@ import BandSong from "../Components/BandSong";
 import "../App.css";
 import { useEffect } from "react";
 import axios from "axios";
+import EditSong from "../Components/EditBand";
 
 export default function QuizOverview() {
   //useEffect(() => {
@@ -36,7 +37,18 @@ export default function QuizOverview() {
         BandName={BandName}
         BandGenre={BandGenre}
         title={title}
-        band_id={band_id}
+        duration={secondsToMinutes(duration)}
+        composer={composer}
+        producer={producer}
+        album={album}
+        spotify_link={spotify_link}
+      />
+      <h1>MainPage2</h1>
+      <br />
+      <EditSong
+        BandName={BandName}
+        BandGenre={BandGenre}
+        title={title}
         duration={secondsToMinutes(duration)}
         composer={composer}
         producer={producer}
